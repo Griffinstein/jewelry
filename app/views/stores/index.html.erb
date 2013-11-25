@@ -1,0 +1,26 @@
+<h1>Listing Stores</h1>
+
+<table>
+  <tr>
+  	<th>Store ID</th>
+    <th>Store Name</th>
+    <th>Staff</th>
+    <th>No. Items</th>
+    <th></th>
+  </tr>
+
+<% @stores.each do |store| %>
+  <tr>
+  	<td><%= store.id %></td>
+    <td><%= store.name %></td>
+    <td><%= 'store.staff?' %></td>
+    <td><%= store.items.size %></td>
+    <td><%= link_to 'Items', store_items_path(store) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'New Store', new_store_path %>

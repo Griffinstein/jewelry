@@ -8,6 +8,10 @@ Jewelry::Application.routes.draw do
     resources :comments
   end
   
+  resources :stores do
+    resources :items
+  end
+  
   root 'welcome#index'
 
   # Example of regular route:
