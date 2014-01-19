@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Items for <%=@store.name%></h1>
+
+<table>
+  <tr>
+  	<th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Style</th>
+    <th>Occassion</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @store.items.each do |item| %>
+  <tr>
+  	<td><%= item.id %></td>
+    <td><%= item.name %></td>
+    <td><%= item.price %></td>
+    <td><%= item.style %></td>
+    <td><%= item.occassion %></td>
+    <td><%= link_to 'View', store_item_path(@store,item) %></td>
+    <td><%= link_to 'Edit', edit_store_item_path(@store,item) %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'New Item', new_store_item_path(@store)%>
+<br />
+
+<%= link_to 'Back to Store', store_path(@store) %>
+<%= link_to 'Back to Stores', stores_path %>
